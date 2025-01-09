@@ -1,0 +1,79 @@
+@import "colors";
+
+@media (width < 1140px) {
+  .wrapper {
+    padding: 0 2%;
+  }
+
+  .wrapper {
+    .kitchen__panels_wrapper {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/section-kitchen.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      color: $light-color;
+
+      .kitchen__panel-right {
+        display: none;
+      }
+
+      .kitchen__panel-left {
+        width: 100%;
+        padding: 50px;
+
+        .kitchen__panel_text {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (width < 920px) {
+  .header {
+    .header__bar {
+      .bar__menu {
+        display: none;
+      }
+
+      .bar__menu__icon-hidden {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (width < 468px) {
+  .btn {
+    padding: 13px 30px 10px 30px;
+  }
+
+  .header {
+    .header__content {
+      .content__button-panel {
+
+        display: flex;
+        flex-flow: column;
+
+        .content__button-ghost {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  .section__order-form {
+    form {
+      .order-form__element {
+        flex-flow: column;
+
+        input, textarea {
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

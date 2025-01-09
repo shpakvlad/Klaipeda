@@ -1,0 +1,560 @@
+@import "fonts", "colors", "variables", "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  max-height: 100%;
+  overflow-x: hidden;
+  font-family: 'Cormorant', serif;
+  letter-spacing: 1px;
+  text-align: justify;
+}
+
+/***** REUSABLE *****/
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+a, link {
+  text-decoration: none;
+  transition: .5s all;
+
+  &:focus {
+    border: none;
+  }
+}
+
+.btn {
+  padding: 13px 30px 10px 30px;
+  border-radius: 200px;
+  background-color: $accent-color-dark;
+  color: $light-color;;
+  text-transform: uppercase;
+  border: 2px solid $accent-color;
+  /*letter-spacing: 1px;*/
+  transition: .5s all;
+
+  &:hover {
+    background-color: $accent-color;
+    border: 2px solid $accent-color;
+  }
+}
+
+.section {
+  padding: 75px 0;
+  @include fluid-font-size(30, 15);
+
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 50px;
+  @include fluid-font-size(40, 20);
+
+  &:after {
+    display: block;
+    height: 4px;
+    width: 100px;
+    margin: 20px auto 0 auto;
+
+    background-color: $accent-color-dark;
+    content: " ";
+  }
+}
+
+.section__text:not(:first-of-type) {
+  margin-top: 20px;
+}
+
+.accordion {
+  background-color: $bg-color-accordion;
+  border: 2px solid $accent-color;
+  color: $accordion-color;
+  cursor: pointer;
+  padding: 18px 0 18px 30px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  @include fluid-font-size(22, 12);
+  transition: 0.4s;
+
+  &:first-of-type {
+    margin-top: 30px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 10px;
+  }
+}
+
+.active, .accordion:hover {
+  background-color: $accordion-hover;
+}
+
+.acc-btn {
+  border-radius: 200px;
+  margin-top: 20px;
+  list-style-type: none;
+
+  &:hover {
+    background-color: $accent-color-dark;
+    border: 2px solid $accent-color-dark;
+    color: $light-color;
+  }
+}
+
+.panel {
+  padding: 5px 18px;
+  overflow: hidden;
+  @include fluid-font-size(22, 12);
+
+  .panel:not(:first-of-type) {
+    margin-top: 20px;
+  }
+}
+
+/***** HEADER *****/
+.header {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url("../img/klaipeda-harbor.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  .header__bar {
+    /*background-color: orange;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bar__logo {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin-left: 20px;
+        @include fluid-font-size(22, 12);
+        color: $light-color;
+        text-transform: uppercase;
+      }
+    }
+
+    .bar__menu {
+      display: flex;
+      gap: 30px;
+
+      .menu__item {
+        text-transform: uppercase;
+        color: $light-color;
+        /*letter-spacing: 1px;*/
+        border-bottom: 3px solid transparent;
+        padding-bottom: 5px;
+
+        &:hover {
+          border-bottom: 3px solid $accent-color-dark;
+        }
+      }
+    }
+
+    .bar__menu__icon-hidden {
+      display: none;
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  .header__content {
+    width: 100%;
+
+    .content__text {
+      @include fluid-font-size(100, 45);
+      color: $light-color;
+
+      font-family: 'Cormorant-bold', serif;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    .content__slogan {
+      @include fluid-font-size(40, 20);
+
+      letter-spacing: 2px;
+      color: $light-color;
+      font-family: Cormorant-light, sans-serif;
+      font-weight: 100;
+    }
+
+    .content__button-panel {
+      margin-top: 30px;
+      @include fluid-font-size(20, 12);
+
+      .content__button {
+        font-weight: 700;
+      }
+
+      .content__button-ghost {
+        margin-left: 20px;
+        background-color: transparent;
+        color: $light-color;
+        border: 3px solid $accent-color-dark;
+
+        &:hover {
+          background-color: $accent-color-dark;
+        }
+      }
+    }
+  }
+
+  .bar__menu-hidden {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    width: 300px;
+    height: calc(100vh - 100px);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    border-radius: 20px 0 0 20px;
+
+    .bar__menu-hidden-wrapper {
+      display: flex;
+      flex-flow: column;
+      padding: 100px 50px;
+
+      .menu__item-hidden {
+        color: $light-color;
+        width: 100%;
+        text-align: right;
+        @include fluid-font-size(30, 15);
+
+        &:not(:first-of-type) {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+/***** DESCRIPTION *****/
+.section__description {
+  background-image: url("../img/section-background.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/***** HISTORY *****/
+.section__history {
+  /*background-color: #dddddd;*/
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/section-history-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: $light-color;
+}
+
+/***** CULTURE **** */
+.section__culture {
+  a {
+    color: $accent-color-dark;
+  }
+}
+
+/***** NATURE *****/
+.section__nature {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/section-nature-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: $light-color;
+}
+
+/***** KITCHEN *****/
+.kitchen__panels_header-text {
+  @include fluid-font-size(30, 15);
+  margin-bottom: 50px;
+}
+
+.kitchen__panels_wrapper {
+  display: flex;
+
+  .kitchen__panel-left {
+    width: 50%;
+    @include fluid-font-size(22, 15);
+
+    .kitchen__panel_text {
+      margin: 10px 0 20px 15px;
+      padding-right: 24px;
+    }
+  }
+
+  .kitchen__panel-right {
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    position: relative;
+
+    .kitchen__dish-photo {
+      position: absolute;
+      transition: .3s scale;
+      border-radius: 20px;
+      border: 2px solid $light-color;
+      width: 100%;
+
+      &:hover {
+        z-index: 1000;
+        scale: 1.2;
+      }
+    }
+
+    .dish-photo1 {
+      top: calc($dishes-step);
+    }
+
+    .dish-photo4 {
+      top: calc($dishes-step * 2);
+    }
+
+    .dish-photo5 {
+      top: calc($dishes-step * 3);
+    }
+
+    .dish-photo6 {
+      top: calc($dishes-step * 4);
+    }
+
+    .dish-photo7 {
+      top: calc($dishes-step * 5);
+    }
+
+    .dish-photo8 {
+      top: calc($dishes-step * 6);
+    }
+
+    .dish-photo9 {
+      top: calc($dishes-step * 7);
+    }
+
+    .dish-photo10 {
+      top: calc($dishes-step * 8);
+    }
+
+    .dish-photo11 {
+      top: calc($dishes-step * 9);
+    }
+  }
+}
+
+.section__kitchen-footer {
+  @include fluid-font-size(30, 15);
+  margin-top: 30px;
+}
+
+/***** SLIDER *****/
+.section__swiper {
+  background-color: $bg-swiper-color;
+
+  .swiper-slide {
+    .swiper__text {
+      @include fluid-font-size(30, 15);
+    }
+  }
+}
+
+/***** TOTAL *****/
+
+/***** ORDER *****/
+.section__order-form {
+  background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .1)), url("../img/section-order-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: $light-color;
+
+  form {
+    max-width: 800px;
+    text-align: left;
+    margin: 100px auto 0 auto;
+    font-family: Cormorant, sans-serif;
+
+    fieldset {
+      border: none;
+    }
+
+    .order-form__element {
+      display: flex;
+
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+
+      input, textarea {
+        @include fluid-font-size(30, 15);
+        width: 50%;
+        margin-left: auto;
+        padding-left: 10px;
+        resize: none;
+        font-family: Cormorant, sans-serif;
+      }
+    }
+
+    .order-form__button_panel {
+      width: 100%;
+      text-align: right;
+      margin-top: 20px;
+
+      .order-form__button-submit {
+        font-family: Cormorant, sans-serif;
+      }
+    }
+  }
+}
+
+/***** FOOTER *****/
+footer {
+  background-color: $bg-color-footer;
+  color: $light-color;
+  padding: 50px 0 10px 0;
+
+  .wrapper {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
+  .footer__panel-left {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .footer__nav {
+    display: flex;
+    flex-flow: column;
+
+    .footer__nav-item {
+      color: $light-color;
+      @include fluid-font-size(20, 12);
+
+      &:not(:first-of-type) {
+        margin-top: 10px;
+      }
+
+      &:hover {
+        color: $accent-color-dark;
+      }
+    }
+  }
+
+  .copy-right {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+/***** FOR TEST *****/
+.for-test {
+  @include fluid-font-size(30, 15);
+}
+
+/***** SWIPER *****/
+.section__swiper {
+  .swiper {
+    width: 100%;
+    height: 600px;
+    border-radius: 20px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: $light-color;
+    position: relative;
+  }
+
+  .slider__header {
+    @include fluid-font-size(40, 20);
+  }
+
+  .swiper__text {
+    padding: 0 50px 50px;
+    @include fluid-font-size(25, 16);
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .slider__header {
+    margin-bottom: 20px;
+  }
+
+  .slide-1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/old-town.webp");
+  }
+
+  .slide-2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/pilies-town.webp");
+  }
+
+  .slide-3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/teatras-town.webp");
+  }
+
+  .slide-4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/juru-muziejus.webp");
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $accent-color-dark;
+    font-weight: 600;
+  }
+}
+
+/***** SCROLL BAR *****/
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: $bg-color-accordion;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $accent-color-dark;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background-color: $bg-color-accordion;;
+}

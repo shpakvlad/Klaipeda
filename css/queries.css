@@ -1,0 +1,53 @@
+@media only screen and (max-width: 1140px) {
+  .wrapper {
+    padding: 0 2%;
+  }
+  .wrapper .kitchen__panels_wrapper {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/section-kitchen.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    color: #FFF;
+  }
+  .wrapper .kitchen__panels_wrapper .kitchen__panel-right {
+    display: none;
+  }
+  .wrapper .kitchen__panels_wrapper .kitchen__panel-left {
+    width: 100%;
+    padding: 50px;
+  }
+  .wrapper .kitchen__panels_wrapper .kitchen__panel-left .kitchen__panel_text {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 920px) {
+  .header .header__bar .bar__menu {
+    display: none;
+  }
+  .header .header__bar .bar__menu__icon-hidden {
+    display: block;
+  }
+}
+@media only screen and (max-width: 468px) {
+  .btn {
+    padding: 13px 30px 10px 30px;
+  }
+  .header .header__content .content__button-panel {
+    display: flex;
+    flex-flow: column;
+  }
+  .header .header__content .content__button-panel .content__button-ghost {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .section__order-form form .order-form__element {
+    flex-flow: column;
+  }
+  .section__order-form form .order-form__element input, .section__order-form form .order-form__element textarea {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=queries.css.map */

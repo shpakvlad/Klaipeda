@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Cormorant';
+  src: url('../fonts/CormorantSC-Regular.eot');
+  src: url('../fonts/CormorantSC-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/CormorantSC-Regular.woff2') format('woff2'),
+  url('../fonts/CormorantSC-Regular.woff') format('woff'),
+  url('../fonts/CormorantSC-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant-bold';
+  src: url('../fonts/CormorantSC-Bold.eot');
+  src: url('../fonts/CormorantSC-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/CormorantSC-Bold.woff2') format('woff2'),
+  url('../fonts/CormorantSC-Bold.woff') format('woff'),
+  url('../fonts/CormorantSC-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant-light';
+  src: url('../fonts/CormorantSC-Light.eot');
+  src: url('../fonts/CormorantSC-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/CormorantSC-Light.woff2') format('woff2'),
+  url('../fonts/CormorantSC-Light.woff') format('woff'),
+  url('../fonts/CormorantSC-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
